@@ -20,21 +20,17 @@
 		var userGuess = event.key;
 
 		if (userGuess === secret) {
-			wins++
-			secret
 		} else {
 			//The guessRemain needs to go down 1 unit, and the secret needs to reset
-			guessRemain--
-			secret
+			guessRemain--;
+			secret;
 		}
 
 		if (guessRemain = 0) {
 			//The losses need to advance and the guesses remaining needs to be reset
-			console.log(guessRemain);
-			losses++
+			losses++;
 
 			guessRemain = 10;
-			console.log(guessRemain);
 		}
 
 
