@@ -1,42 +1,190 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Psychic Game</title>
-<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
-<!-- <link rel="stylesheet" href="css/styles.css"> -->
-<script src="js/javascript.js"></script>
+    <meta charset="UTF-8">
+    <title>Crystal game</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+
+    <style>
+    	body {
+    		margin: 0px;
+    	}
+
+    	.game {
+    		float: left;
+    		width: 1000px;
+    		padding: 50px 100px 100px 100px;
+    		background: #eeeeee;
+    	}
+
+    	.random-number {
+    		float: left;
+    		width: 560px;
+    		height: 200px;
+    		background: #332060;
+    		color: #fff;
+    		padding: 0 20px;
+    	}
+
+    	.wins-losses {
+    		float: left;
+    		width: 160px;
+    		height: 200px;
+    		background: #a48fc8;
+    		color: #000;
+    		padding: 0 20px;
+    	}
+
+    	.crystals {
+    		float: left;
+    		width: 860px;
+    		height: 200px;
+    		padding: 0;
+    		margin: 0;
+    	}
+
+    	.score {
+    		float: left;
+    		width: 560px;
+    		height: 200px;
+    		background: #be081f;
+    		color: #000;
+    		padding: 0 20px;
+    	}
+
+    </style>
 
 </head>
 
 <body>
+
 	<div class="game">
-	
-	<p><span class="title">The Psychic Game</span></p>
-	<br>
-<!-- 	<p><span>Guess what letter I am thinking of?</span></p>
 
-	<br>
-	<p><span id="wins"></span></p>
-	<br>
-	<p><span id="losses"></span></p>
-	<br>
-	<p><span id="guessRemain"></span></p>
-	<br>
-	<p><span id="guessCount"></span></p> -->
+		<H1>Crystals Collector!</H1>
 
+		<div class="random-number">
+			<h1 class="text-center" id="compNumber">random number</h1>
 
-	<div id="game">
-    <p><span>Guess what letter I am thinking of?</span></p>
-  	</div>
+		</div>
 
-	
+		<div class="wins-losses">
+			<h2 id="winsCounter"></h2>
+			<h2 id="lossCounter"></h2>
+		</div>
+
+		<div class="crystals" style="float: left; padding: 0; margin: 0;">
+			<img id="crystal1" src="img/mind.jpg" alt="crystal-1" height="200" width="200">
+			<img id="crystal2" src="img/purple.jpg" alt="crystal-2" height="200" width="200">
+			<img id="crystal3" src="img/red.jpg" alt="crystal-3" height="200" width="200">
+			<img id="crystal4" src="img/skull.jpg" alt="crystal-4" height="200" width="200">
+		</div>
+
+		<div class="score">
+			<h1 id="score"></h1>
+			<br>
+			<h1 id="counter"></h1>
+		</div>
+
 	</div>
+
+
+<script>
+	$(document).ready(function() {
 	
+		//Variables
+		var compNumber = Math.floor(Math.random() * 101 + 19);
+		$("#compNumber").text(compNumber);
+		var winsCounter = 0;
+		var lossCounter = 0;
+		var crystal1no = Math.floor(Math.random() * 11 + 1);
+		var crystal2no = Math.floor(Math.random() * 11 + 1);
+		var crystal3no = Math.floor(Math.random() * 11 + 1);
+		var crystal4no = Math.floor(Math.random() * 11 + 1);
+		var score = 0;
+		var counter = 0;
+		$("#score").append("Score: " + score);
+		console.log("Score: " + score);
+		$("#winsCounter").append("wins: " + winsCounter);
+		console.log("wins: " + winsCounter);
+		$("#lossCounter").append("losses: " + lossCounter);
+		console.log("losses: " + lossCounter);
+		$("#counter").append("Counter: " + counter);
+		console.log("counter: " + counter);
+
+		// function win() {
+		// alert("You win!");
+		// winsCounter ++;
+		// $("#winsCounter").text(winsCounter);
+		// restartGame();
+		// }
+
+		// function lose() {
+		// alert("You lose!");
+		// lossCounter ++;
+		// $("#lossCounter").text(lossCounter);
+		// restartGame();
+		// }
+
+		// function restartGame() {
+
+			function WinLose () {
+			if (counter === compNumber) {
+				wins += 1;
+				alert("Fuck yeah!");
+				return $(win).text(winsCounter)
+				} else if (counter > compNumber) {
+					alert("You suck again!");
+					return $(loss).text(losses);
+				}
+			}
+
+			var crystal1no = Math.floor(Math.random() * 11 + 1);
+			var crystal2no = Math.floor(Math.random() * 11 + 1);
+			var crystal3no = Math.floor(Math.random() * 11 + 1);
+			var crystal4no = Math.floor(Math.random() * 11 + 1);
+			var score = 0;
+
+			$("#crystal1").on("click", function() {
+				score += crystal1no;
+				WinLose();
+				$(score).text(score);
+			});
+		 	
+
+		
+		 	
+
+			
+		
+
+		
+
+	
+
+		//functions
+
+		//reset
+
+		//random number generator 
+		// for (var i = 0; i > 20; i < 120; i++) {
+		// var current = compNumber[i]
+		// console.log(compNumber);
+		// }
+
+	
+		// };
+
+
+
+    });
+
+
+</script>
 
 </body>
-
-
 </html>
